@@ -16,7 +16,7 @@
     <author href="https://coding-labs.com" email="admin@coding-labs.com">
         imadOs
     </author>
-	<icon src="icon.ico" platform="android" />
+	<icon src="icon.png" platform="android" />
 	<access origin="*" />
 	<gap:plugin name="cordova-plugin-whitelist" source="npm" /> 
 
