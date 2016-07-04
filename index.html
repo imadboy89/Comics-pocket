@@ -163,6 +163,10 @@
 					<button class="btn btn-success" id = "ch_image_next" style="display: inline;margin: 5px;float:right">
 						<i class="glyphicon glyphicon-step-forward"></i> Next
 					</button> 
+
+					<h4 style="display:inline;margin-left: 20%;"> Image : <span id="img_actual"></span> / <span id="img_total" ></span></h4>
+					
+					
 					<div class="gallery-row"id ="chapter_imgs"> 
 
 						
@@ -176,7 +180,7 @@
 				
 					<div id="details_cnt" style=' border: 2px solid #fff; '> 
 						<div class="stack twisted">	
-							<img src="" alt=" " class="img-responsive" id="desc_img" onError="this.onerror=null;this.src='images/noimage.jpg';">
+							<img src="" alt=" " class="img-responsive" id="desc_img" style="min-height: 300px;background-color: white;" onError="this.onerror=null;this.src='images/noimage.jpg';">
 						</div>   
 						<div class="w3agent-text"> 
 							<h3 id="desc_title" style="color: #068993;"></h3><br/>
@@ -377,7 +381,7 @@ function get_list(page){
 	});
 }
 $("#list").on("click",".comic",function(){
-	
+	$("#back_desc").click();
 	$("#chapters").html("<option> Select a chapters</option>");
 	url = url_info.replace("[id]",$(this).attr("id"));
 	
@@ -437,6 +441,8 @@ function get_chapter(id,name){
 			$("#chapter_imgs").append(new_chapter_html);
 			
 		});
+		$("#img_total").text(data.images.length);
+		$("#img_actual").text(1);
 		console.log(data);
 		$("#chapter_gallery").show();
 		$("#details_cnt").hide();
@@ -477,6 +483,7 @@ $("#chapter_gallery").on("click","#ch_image_prev",function(){
 	id = parseInt($(".chapter_image:visible").attr("id").split("_")[1])-1;
 	if (id < 0)
 		return 0;
+	$("#img_actual").text(id+1);
 	$(".chapter_image").hide();
 	$("#image_"+id).show();
 });
@@ -484,6 +491,7 @@ $("#chapter_gallery").on("click","#ch_image_next",function(){
 	id = parseInt($(".chapter_image:visible").attr("id").split("_")[1])+1;
 	if ($(".chapter_image").length <= id)
 		return 0;
+	$("#img_actual").text(id+1);
 	$(".chapter_image").hide();
 	$("#image_"+id).show();
 });
