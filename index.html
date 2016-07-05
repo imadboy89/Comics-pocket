@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  manifest="com.coding_labs.Comics_pocket.appcache">
 <head>
-<title>iComics</title> 
+<title>Comics pocket</title> 
 <!-- For-Mobile-Apps-and-Meta-Tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -64,7 +64,7 @@
 					<button class="menu-button" id="open-button">O</button>
 				</div>
 				<div class="logo">
-					<h2><a>iComics</a></h2>
+					<h2><a>Comics pocket</a></h2>
 				</div>
 				<div class="login">
 					<a href="#small-dialog" class="sign-in popup-top-anim"><span class="glyphicon glyphicon-user"></span></a> 
@@ -223,8 +223,8 @@
 					<div class="clearfix"> </div>
 					<center>
 					<div style="margin-top: 10px;">
-						<input id="Prev" class="btn btn-primary" value="<< Prev" style ="    width: 90px;"/>
-						<input id="Next" class="btn btn-primary" value="Next >>" style ="    width: 90px;"/>
+						<input id="Prev" class="btn btn-primary" value="<< Prev" style ="    width: 90px;margin:10px"/>
+						<input id="Next" class="btn btn-primary" value="Next >>" style ="    width: 90px;margin:10px"/>
 					</div>
 					</center>
 				</div> 
@@ -232,18 +232,23 @@
 
 				<!-- footer -->
 				<div class="w3agile footer"> 
-				<!--
 					<div class="social-icons">
 						<ul>
 							<li><a href="#"> </a></li>
-							<li><a href="#" class="fb"> </a></li>
-							<li><a href="#" class="gp"> </a></li>
+							<li><a href="https://www.facebook.com/codinglabs.page/" target="_blank" class="fb"> </a></li>
+							<li><a href="https://plus.google.com/u/0/116669386477983468558"  target="_blank"  class="gp"> </a></li>
 							<li><a href="#" class="drb"> </a></li>
 						</ul>
 						<div class="clearfix"> </div>
 					</div>
-				-->
-
+					<div class="footer-nav">
+						<ul>  
+							<li><a href="main.html"> Home </a></li>
+							<li><a href="about.html"> About </a> </li>
+							<li><a href="contact.html"> Contact </a></li>
+						</ul> 
+						<div class="clearfix"> </div>
+					</div> 
 					<div class="footer-text">
 						<p>&copy; 2016 coding-labs.com . All Rights Reserved </p>
 					</div>
@@ -326,14 +331,10 @@ prop+='		Updated :<h6 style="display:inline;color:#8b008b">[last_update]</h6>';
 //prop+='		<h6>[nbr viewed]</h6>';
 prop+='	</div>';
 prop+='</div>';
+
 chapter_html = '<div class=" chapter_image" id="image_[id]" style="display:none">';
 chapter_html += '<div class=" imageHolder">';
-//chapter_html += '<a href="[img]" data-lightbox="example-set" data-title="[title]">';
-chapter_html += '<img src="[img]" class="" alt=""  data-elem="pinchzoomer" data-options="scaleMode:full;"/>';
-//chapter_html += '<div class="view-caption">';
-//chapter_html += '<h5>View+</h5> ';
-//chapter_html += '</div>';
-//chapter_html += '</a>';
+chapter_html += '<img src="0" data_src="[img]" class="" alt=""  data-elem="pinchzoomer" data-options="scaleMode:full;"/>';
 chapter_html += '</div></div>';
 							
 url_list    = "https://www.mangaeden.com/api/list/0/?p=[page]&l=25";
@@ -439,6 +440,7 @@ function get_chapter(id,name){
 		console.log(data);
 		$("#chapter_gallery").show();
 		$("#details_cnt").hide();
+		$("#image_0 img").attr("src" , $("#image_0 img").attr("data_src"));
 		$("#image_0").show();
 	});
 }
@@ -465,19 +467,16 @@ $("#back_desc").click(function(){
 	$("#chapter_gallery").hide();
 	$("#details_cnt").show();
 });
-$("#chapter_gallery").on("click",".chapter_image",function(){
-	id = $(this).attr("id").split("_") [1];
-	$(".chapter_image").hide();
-	$("#image_"+id).show();
-});
 
-alert(11);
+
 $("#chapter_gallery").on("click","#ch_image_prev",function(){
 	id = parseInt($(".chapter_image:visible").attr("id").split("_")[1])-1;
 	if (id < 0)
 		return 0;
 	$("#img_actual").text(id+1);
 	$(".chapter_image").hide();
+	if($("#image_"+id+" img").attr("src")=="0")
+		$("#image_"+id+" img").attr("src" , $("#image_"+id+" img").attr("data_src"));
 	$("#image_"+id).show();
 });
 $("#chapter_gallery").on("click","#ch_image_next",function(){
@@ -486,6 +485,8 @@ $("#chapter_gallery").on("click","#ch_image_next",function(){
 		return 0;
 	$("#img_actual").text(id+1);
 	$(".chapter_image").hide();
+	if($("#image_"+id+" img").attr("src")=="0")
+		$("#image_"+id+" img").attr("src" , $("#image_"+id+" img").attr("data_src"));
 	$("#image_"+id).show();
 });
 
