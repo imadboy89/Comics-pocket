@@ -2,12 +2,12 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.coding_labs.Comics_Pocket"
-        versionCode = "10" 
+        versionCode = "16" 
         version     = "0.1.1" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>iComics</name>
+    <name>Comic Pocket</name>
 
     <description>
         you can acces to Over 14000 comics series with iComics!
