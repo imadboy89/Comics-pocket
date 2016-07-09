@@ -246,7 +246,6 @@
 							<li><a href="index.html"> Home </a></li>
 							<li><a href="about.html"> About </a> </li>
 							<li><a href="contact.html"> Contact </a></li>
-							<li><a href="http://www.mangaeden.com"> Mangaeden API </a></li>
 							
 						</ul> 
 						<div class="clearfix"> </div>
@@ -311,6 +310,25 @@
 </body>
 </html>
 <script>
+    function onDeviceReady() {
+      document.removeEventListener('deviceready', onDeviceReady, false);
+
+      // Set AdMobAds options:
+      admob.setOptions({
+        publisherId:    "ca-app-pub-5231842333475288/6501579853" ,//"ca-app-pub-5231842333475288~4533822254",  // Required
+        //interstitialAdId:     "ca-app-pub-5231842333475288/6010555458",  // Optional
+		isTesting: true,
+      });
+
+      // Start showing banners (atomatic when autoShowBanner is set to true)
+      admob.createBannerView();
+
+      // Request interstitial (will present automatically when autoShowInterstitial is set to true)
+      admob.requestInterstitial();
+    }
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+	
 	function get_remote_action(){
 		$.ajax({
 		  url: "http://apps.coding-labs.com/getAction.php?app=com.coding_labs.iComics",
