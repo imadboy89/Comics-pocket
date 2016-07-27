@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.coding_labs.Comics_Pocket"
+        id          = "com.coding_labs.Comics_Go"
         versionCode = "16" 
         version     = "0.1.1" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>Comic Pocket</name>
+    <name>Comics Go</name>
 
     <description>
-        you can acces to Over 14000 comics series with iComics!
+        you can acces to Over 14000 comics series with Comics Go!
     </description>
 
     <author href="https://coding-labs.com" email="admin@coding-labs.com">
