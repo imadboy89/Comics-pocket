@@ -21,6 +21,7 @@
 	<gap:plugin name="cordova-plugin-whitelist" source="npm" /> 
 	<gap:plugin name="phonegap-admob" source="npm" />
 	<plugin name="cordova-plugin-crosswalk-webview" version="1.6.1">
+		<preference name="android-versionCode" value="1" />
     		<param name="XWALK_MODE" value="lite" />
 	</plugin>
 </widget>
