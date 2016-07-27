@@ -2269,10 +2269,12 @@ h3.w3ls-title {
     /* border-width: 1px; */
     border: 5px solid #000;
     border-radius: 30px;
-    padding: 40px;
+    padding: 20px;
     background: white;
     width: 40%;
     height: 30%;
+    max-width: 150px;
+    max-height: 150px;
 }
 .loader_ajax img{
 	width:98%;
